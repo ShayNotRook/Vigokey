@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'phonenumber_field',
     
     # Local apps
-    'accounts'
+    'accounts',
+    'products',
 ]
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
