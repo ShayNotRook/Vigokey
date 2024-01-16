@@ -40,10 +40,19 @@ INSTALLED_APPS = [
     
     # 3rd party
     'rest_framework',
+    'rest_framework.authtoken',
     'drf_spectacular',
     'dj_rest_auth',
     'dj_rest_auth.registration',
+    'phonenumber_field',
+    
+    # Local apps
+    'accounts'
 ]
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
+PHONENUMBER_DB_FORMAT = 'E164'
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -81,8 +90,12 @@ WSGI_APPLICATION = "vigokey.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": 'vigokey',
+        'HOST': 'localhost',
+        'USER': 'admindjango',
+        'PASSWORD': 'djangoadmin4321@',
+        'PORT': '3306'
     }
 }
 

@@ -8,6 +8,9 @@ django = "*"
 djangorestframework = "*"
 drf-spectacular = "*"
 dj-rest-auth = "*"
+pillow = "*"
+django-phonenumber-field = "*"
+phonenumbers = "*"
 
 [dev-packages]
 
