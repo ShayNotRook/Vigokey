@@ -31,29 +31,39 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Default Apps
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'django.contrib.sites',
     
     # 3rd party
     'rest_framework',
     'rest_framework.authtoken',
-    'drf_spectacular',
     'dj_rest_auth',
     'dj_rest_auth.registration',
     'phonenumber_field',
+    'allauth',
+    'allauth.account',
+    'drf_spectacular',
     
     # Local apps
     'accounts',
     'products',
+    
+
 ]
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
+
 PHONENUMBER_DB_FORMAT = 'E164'
+
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -63,6 +73,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'allauth.account.middleware.AccountMiddleware'
 ]
 
 ROOT_URLCONF = "vigokey.urls"
@@ -85,6 +96,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "vigokey.wsgi.application"
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -149,6 +161,19 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
     ],
-    
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema'
+}
+
+# Spectacular
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Vigokey Endpoints',
+    'DESCRIPTION': 'Online platform for game content and items',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    'REDOC' : {
+        'SPEC_URL': 'api/schema/redoc/'
+    }
 }

@@ -11,6 +11,7 @@ dj-rest-auth = "*"
 pillow = "*"
 django-phonenumber-field = "*"
 phonenumbers = "*"
+django-allauth = "*"
 
 [dev-packages]
 
