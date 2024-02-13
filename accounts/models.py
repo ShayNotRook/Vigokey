@@ -26,7 +26,11 @@ class UserProfile(models.Model):
     class Meta:
         verbose_name_plural = 'User Profile'
     
+
+class DeletedUsers(models.Model):
+    email = models.EmailField(null=True, blank=True)
     
+
 class Wallet(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     balance = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)

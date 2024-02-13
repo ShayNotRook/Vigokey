@@ -9,9 +9,8 @@ djangorestframework = "*"
 drf-spectacular = "*"
 dj-rest-auth = "*"
 pillow = "*"
-django-phonenumber-field = "*"
-phonenumbers = "*"
 django-allauth = "*"
+mysqlclient = "*"
 
 [dev-packages]
 

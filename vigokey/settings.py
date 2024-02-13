@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'dj_rest_auth',
     'dj_rest_auth.registration',
-    'phonenumber_field',
     'allauth',
     'allauth.account',
     'drf_spectacular',
@@ -60,7 +59,7 @@ INSTALLED_APPS = [
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 
-PHONENUMBER_DB_FORMAT = 'E164'
+
 
 
 SITE_ID = 1
