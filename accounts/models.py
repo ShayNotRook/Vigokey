@@ -1,12 +1,20 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import AbstractUser
+import uuid
+
 # Create your models here.
+
 
 def user_image_path(instance, filename):
     return f'user_{instance.id}/{filename}'
 
 class CustomUser(AbstractUser):
+    id = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False
+    )
     name = models.CharField(("Name of user"), blank=True, null=True, max_length=255)
     is_verified = models.BooleanField(default=False)
     

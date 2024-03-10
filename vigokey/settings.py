@@ -59,8 +59,19 @@ INSTALLED_APPS = [
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 
+# Allauth Settings
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 
-
+# ACCOUNT_LOGOUT_REDIRECT = 'home'
+# ACCOUNT_AUTHENTICATION_METHOD = 'email'
+# ACCOUNT_USERNAME_REQUIRED = False
+# ACCOUNT_EMAIL_REQUIRED = True
+# ACCOUNT_UNIQUE_EMAIL = True
+# ACCOUNT_SESSION_REMEMBER = True
+# ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 
 SITE_ID = 1
 
@@ -175,4 +186,10 @@ SPECTACULAR_SETTINGS = {
     'REDOC' : {
         'SPEC_URL': 'api/schema/redoc/'
     }
+}
+
+
+# Dj-Rest-Auth
+REST_AUTH = {
+    
 }
